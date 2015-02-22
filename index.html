@@ -1,36 +1,43 @@
 <!doctype html>
 <html>
   <head>
+       <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
-    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" /> 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
   </head>
-  <body>
+  <body ng-app="MoveLogApp">
     <div class="header">
       <div class="container">
-        MOVE Log
+       <div class="row">
+         <div class="col-xs-3 col-md-12"> 
+         <h1 class="text-center">MOVE Log</h1>
+         </div>
+       </div>
       </div>
     </div>
 
     <div class="main" ng-controller="MainController">
-      <div class="container">
+      <div class="container" >
 
-        <!--
-        TODO: Loop through exercises and display each one with this HTML
-        <div class="row">
-          <div class="exercise-icon col-md-2"> </div>
-            
-          <div class="col-md-8">
-            <p class="exercise-name"> </p>
+        
+        <div class="row" ng-repeat="e in exercises">
+          <div class="exercise-icon col-md-2 col-sm-1 col-xs-1">
+           <img class="img img-responsive" ng-src="{{e.icon}} "></img>  
+            </div>
+           
+          <div class="col-md-8 col-sm-2 col-xs-2">
+            <p class="exercise-name">{{e.name}} </p>
           </div>
           
-          <div class="col-md-2 counters">
-            <span class="decrease">-</span><span class="count">  </span><span class="increase">+</span>
+          <div class="col-md-2 col-xs-2 col-xs-offset-12 col-sm-1 counters">
+            <span class="decrease" ng-click="decrease($index)">-</span><span class="count">{{e.count}}  </span><span class="increase" ng-click="increase($index)">+</span>
           </div>
         </div>
-        -->
-        
+      
       </div>
     </div>
 
